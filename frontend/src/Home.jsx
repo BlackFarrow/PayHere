@@ -40,7 +40,7 @@ const Home = () => {
       merchant_id, // Replace with your Merchant ID
       return_url: "http://localhost:5173/success",
       cancel_url: "http://localhost:5173/cancel",
-      notify_url: "http://localhost:4000/notify",
+      notify_url: "http://localhost:5000/notify",
       order_id,
       items: order.items,
       amount: order.amount,
