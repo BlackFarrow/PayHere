@@ -25,6 +25,7 @@ const Home = () => {
     const order_id = "ORDER_" + new Date().getTime();
     const { amount, currency } = order;
 
+    // Fetch hash and merchant_id from backend
     const response = await axios.post("http://localhost:5000/generate-hash", {
       order_id,
       amount,
@@ -34,24 +35,12 @@ const Home = () => {
     const hash = response.data.hash;
     const merchant_id = response.data.MERCHANT_ID;
 
-    // const MERCHANT_ID = "1227621";
-    // const MERCHANT_SECRET = "";
-    // const hash = to_upper_case(md5(MERCHANT_ID + order_id + amount + currency + to_upper_case(md5(MERCHANT_SECRET))))
-
-    // const hash = md5(
-    //   MERCHANT_ID +
-    //     order_id +
-    //     amount +
-    //     currency +
-    //     md5(MERCHANT_SECRET).toUpperCase()
-    // ).toUpperCase();
-
     const payment = {
       sandbox: true,
-      merchant_id ,// Replace your Merchant ID
-      return_url: "http://localhost:5173/success",
-      cancel_url: "http://localhost:5173/cancel",
-      notify_url: "http://localhost:5000/notify",
+      merchant_id, // Replace with your Merchant ID
+      return_url: "https://webhook-test.com/13917d9044de68b00cd2ba84fdbf5643",
+      cancel_url: "https://webhook-test.com/13917d9044de68b00cd2ba84fdbf5643",
+      notify_url: "https://webhook-test.com/13917d9044de68b00cd2ba84fdbf5643",
       order_id,
       items: order.items,
       amount: order.amount,
@@ -65,13 +54,28 @@ const Home = () => {
       city: order.city,
       country: order.country,
     };
-    console.log(order);
-    console.log(hash);
-    console.log(order_id);
-    console.log("PayHere Object:", payhere);
-    console.log("Payment Object:", payment);
-    console.log(merchant_id);
+
+    // Show the payhere.js popup
     payhere.startPayment(payment);
+
+    // Payment completed
+    payhere.onCompleted = function onCompleted(orderId) {
+      console.log("Payment completed. OrderID:" + orderId);
+
+      // Note: validate the payment and show success or failure page to the customer
+    };
+
+    // Payment window closed
+    payhere.onDismissed = function onDismissed() {
+      console.log("Payment dismissed");
+      // Note: Prompt user to pay again or show an error page
+    };
+
+    // Error occurred
+    payhere.onError = function onError(error) {
+      console.log("Error:" + error);
+      // Note: show an error page
+    };
   };
 
   return (
