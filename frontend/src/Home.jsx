@@ -38,9 +38,9 @@ const Home = () => {
     const payment = {
       sandbox: true,
       merchant_id, // Replace with your Merchant ID
-      return_url: "https://webhook-test.com/13917d9044de68b00cd2ba84fdbf5643",
-      cancel_url: "https://webhook-test.com/13917d9044de68b00cd2ba84fdbf5643",
-      notify_url: "https://webhook-test.com/13917d9044de68b00cd2ba84fdbf5643",
+      return_url: "http://localhost:5173/success",
+      cancel_url: "http://localhost:5173/cancel",
+      notify_url: "http://localhost:4000/notify",
       order_id,
       items: order.items,
       amount: order.amount,

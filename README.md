@@ -1,7 +1,7 @@
 **JavaScript SDK** https://support.payhere.lk/api-&-mobile-sdk/javascript-sdk
 
-**Client**- npm run dev </br>
-**Server**- npm start
+**frontend**- npm run dev </br>
+**backend**- npm start
 
 You can use following test card numbers to test simulated successful payments.
 </br>
