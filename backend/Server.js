@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 const MERCHANT_ID = "1227621";
-const MERCHANT_SECRET = "MzYyNjcxMzM2MDQwNjEwMzA0MDIyOTAyMDAyNTExMjQzNDE4NjY0";
+const MERCHANT_SECRET = "MzM0NTYxNjMzMjI2NjU1MzY2NjczMDMwMDkzMDMzMTYxMTQ0ODE3";
 
 app.post("/generate-hash", (req, res) => {
   const { order_id, amount, currency } = req.body;
