@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 const MERCHANT_ID = "1227621";
-const MERCHANT_SECRET = "MjUwNzE4NzEwNzExMTQyODIwMzE0MDA5MDE0MTYyNzA0MzI2NzE0";
+const MERCHANT_SECRET = "MzA1MzQ3NTg0MTM5Mzk0NTExMzY1NTE0NTYxODcxNjMzMjg3NTk3";
 
 app.post("/generate-hash", (req, res) => {
   const { order_id, amount, currency } = req.body;
@@ -47,8 +47,11 @@ app.post("/notify", (req, res) => {
   if (local_md5sig === md5sig && status_code == 2) {
     // TODO: Update  database as payment success
     res.sendStatus(200);
+    console.log("Payment Success");
+    
   } else {
     res.sendStatus(400);
+    console.log("Payment Failed");
   }
 });
 

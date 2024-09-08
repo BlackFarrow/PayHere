@@ -38,9 +38,9 @@ const Home = () => {
     const payment = {
       sandbox: true,
       merchant_id, // Replace with your Merchant ID
-      return_url: "http://localhost:5173/success",
-      cancel_url: "http://localhost:5173/cancel",
-      notify_url: "http://localhost:5000/notify",
+      return_url: "https://05fa-123-231-124-248.ngrok-free.app/success",
+      cancel_url: "https://05fa-123-231-124-248.ngrok-free.app/cancel",
+      notify_url: "https://d1c7-123-231-124-248.ngrok-free.app/notify",
       order_id,
       items: order.items,
       amount: order.amount,
