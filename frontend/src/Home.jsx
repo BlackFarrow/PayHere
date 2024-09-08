@@ -26,7 +26,7 @@ const Home = () => {
     const { amount, currency } = order;
 
     // Fetch hash and merchant_id from backend
-    const response = await axios.post("https://5799-123-231-124-248.ngrok-free.app/generate-hash", {
+    const response = await axios.post("https://localhost:5000/generate-hash", {
       order_id,
       amount,
       currency,
