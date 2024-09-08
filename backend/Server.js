@@ -45,7 +45,7 @@ app.post("/notify", (req, res) => {
       md5(MERCHANT_SECRET).toUpperCase()
   ).toUpperCase();
   if (local_md5sig === md5sig && status_code == 2) {
-    // TODO: Update your database as payment success
+    // TODO: Update  database as payment success
     res.sendStatus(200);
   } else {
     res.sendStatus(400);
