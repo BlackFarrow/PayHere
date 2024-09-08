@@ -26,7 +26,7 @@ const Home = () => {
     const { amount, currency } = order;
 
     // Fetch hash and merchant_id from backend
-    const response = await axios.post("https://localhost:5000/generate-hash", {
+    const response = await axios.post("https://payhere.onrender.com/generate-hash", {
       order_id,
       amount,
       currency,
@@ -40,7 +40,7 @@ const Home = () => {
       merchant_id, // Replace with your Merchant ID
       return_url: "https://payhere-frontend.onrender.com/success",
       cancel_url: "https://payhere-frontend.onrender.com/cancel",
-      notify_url: "https://5799-123-231-124-248.ngrok-free.app/notify",
+      notify_url: "https://payhere.onrender.com/notify",
       order_id,
       items: order.items,
       amount: order.amount,
