@@ -133,6 +133,7 @@ const Home = () => {
         <button onClick={handlePayment} className="btn">
           Pay Here
         </button>
+        <h1>Salitha</h1>
       </div>
     </div>
   );
